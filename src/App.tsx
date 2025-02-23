@@ -34,7 +34,7 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return null; // Or a loading spinner
+    return null;
   }
 
   return (
@@ -47,21 +47,13 @@ const App = () => {
             <Route
               path="/"
               element={
-                session ? (
-                  <Index />
-                ) : (
-                  <Navigate to="/auth" replace />
-                )
+                session ? <Index /> : <Navigate to="/auth" replace />
               }
             />
             <Route
               path="/auth"
               element={
-                !session ? (
-                  <Auth />
-                ) : (
-                  <Navigate to="/" replace />
-                )
+                !session ? <Auth /> : <Navigate to="/" replace />
               }
             />
             <Route path="*" element={<NotFound />} />
