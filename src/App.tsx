@@ -38,39 +38,37 @@ const App = () => {
   }
 
   return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <SidebarProvider>
-            <Toaster />
-            <Sonner />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  session ? (
-                    <Index />
-                  ) : (
-                    <Navigate to="/auth" replace />
-                  )
-                }
-              />
-              <Route
-                path="/auth"
-                element={
-                  !session ? (
-                    <Auth />
-                  ) : (
-                    <Navigate to="/" replace />
-                  )
-                }
-              />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </SidebarProvider>
-        </BrowserRouter>
-      </QueryClientProvider>
-    </React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <SidebarProvider>
+          <Toaster />
+          <Sonner />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                session ? (
+                  <Index />
+                ) : (
+                  <Navigate to="/auth" replace />
+                )
+              }
+            />
+            <Route
+              path="/auth"
+              element={
+                !session ? (
+                  <Auth />
+                ) : (
+                  <Navigate to="/" replace />
+                )
+              }
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </SidebarProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
