@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
  
-    --primary: 222 47% 11%;
+    --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
  
     --secondary: 210 40% 96.1%;
@@ -33,7 +33,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 221.2 83.2% 53.3%;
  
     --radius: 0.75rem;
   }
@@ -49,7 +49,7 @@
 }
 
 .card {
-  @apply relative overflow-hidden rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-md;
+  @apply relative overflow-hidden rounded-lg border bg-card p-6 shadow-sm transition-all duration-300;
   backdrop-filter: blur(10px);
 }
 
@@ -59,4 +59,43 @@
 
 .button-hover {
   @apply transition-all duration-200 ease-in-out hover:scale-105;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glass effect for cards */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
 }
