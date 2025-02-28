@@ -18,3 +18,12 @@ export interface Task {
   priority: "low" | "medium" | "high";
   dueDate: string;
 }
+
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
+  timestamp: Date;
+  read: boolean;
+  type: "info" | "success" | "warning" | "error";
+}
