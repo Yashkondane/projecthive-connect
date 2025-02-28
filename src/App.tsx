@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import Index from "./pages/Index";
 import Tasks from "./pages/Tasks";
+import ProjectDetails from "./pages/ProjectDetails";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/tasks" element={<Tasks />} />
+            <Route path="/projects/:projectId" element={<ProjectDetails />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </SidebarProvider>

@@ -5,8 +5,9 @@ import { Input } from "@/components/ui/input";
 import type { Project } from "@/types";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Plus, Calendar } from "lucide-react";
+import { Plus, Calendar, ArrowRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 
 const sampleProjects: Project[] = [
   {
@@ -135,12 +136,14 @@ const Index = () => {
                   <Calendar className="mr-1 h-4 w-4" />
                   <span>Due {new Date(project.dueDate).toLocaleDateString()}</span>
                 </div>
-                <Button
-                  variant="ghost"
-                  className="text-blue-600 hover:bg-blue-50 hover:text-blue-700"
-                >
-                  View Details
-                </Button>
+                <Link to={`/projects/${project.id}`}>
+                  <Button
+                    variant="ghost"
+                    className="text-blue-600 hover:bg-blue-50 hover:text-blue-700"
+                  >
+                    View Details <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
